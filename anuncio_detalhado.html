@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Veículo - Gani</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/anuncio_det.css">
+    <script src="scripts/index.js"></script>
+</head>
+<body>
+    <header>
+        <img src="imgs/logo.png" alt="Logo">
+    </header>
+
+    <main>
+        <div class="detalhes-container">
+            <h2>Detalhes do Veículo</h2>
+            <div class="detalhes-carro">
+                <div class="carrossel">
+                    <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+                    <div class="slides">
+                        <img class="slide ativo" src="imgs/peugeot-208.jpg" alt="Imagem 1">
+                        <img class="slide" src="imgs/peugeot-208-2.png" alt="Imagem 2">
+                        <img class="slide" src="imgs/peugeot-208-3.png" alt="Imagem 3">
+                    </div>
+                    <button class="next" onclick="mudarSlide(1)">&#10095;</button>
+                </div>
+                
+                <div class="info">
+                    <h1 id="carro-modelo">Peugeot 208</h1>
+                    <p id="carro-marca"><strong>Marca:</strong> Peugeot</p>
+                    <p id="carro-ano"><strong>Ano:</strong> 2020</p>
+                    <p id="carro-km"><strong>Quilometragem:</strong> 30.000 km</p>
+                    <p id="carro-cor"><strong>Cor:</strong> Branco</p>
+                    <p id="carro-estado"><strong>Estado:</strong> São Paulo</p>
+                    <p id="carro-cidade"><strong>Cidade:</strong> São Paulo</p>
+                    <p id="carro-preco"><strong>Preço:</strong> R$ 75.000</p>
+                    <p id="carro-descricao"><strong>Descrição:</strong> Veículo em ótimo estado, revisado e com baixa quilometragem.</p>
+                    <button class="botao ver">Ver Interesse</button>
+                    <button class="botao excluir">Excluir Anúncio</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 GANI CAR - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        mostrarSlides(slideIndex);
+
+        function mudarSlide(n) {
+            slideIndex += n;
+            mostrarSlides(slideIndex);
+        }
+
+        function mostrarSlides(n) {
+            let slides = document.querySelectorAll(".slide");
+
+            if (n >= slides.length) {
+                slideIndex = 0;
+            } else if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? "block" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
