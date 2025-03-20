@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const botaoInteresse = document.querySelector(".ver");
 
     botaoInteresse.addEventListener("click", function () {
-        window.location.href = "lista_int.html";
+        window.location.href = "listar_interesses.html";
     });
 });
 
